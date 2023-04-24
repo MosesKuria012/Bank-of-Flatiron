@@ -1,70 +1,68 @@
-# Getting Started with Create React App
+# Getting started in creating the bank of Flatiron
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This is a React application that manages expenses using state and props.
 
-## Available Scripts
+## The first few lines of code import the necessary dependencies and components.
 
-In the project directory, you can run:
+The first few lines of code import the necessary dependencies and components.
 
-### `npm start`
+initialExpenses is an array that contains some example transactions. These transactions will be used to populate the initial state of the expenses array.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+The App component is defined using an arrow function. The App component is the top-level component of the application.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+### The useState hook is used to create several state variables:
 
-### `npm test`
+expenses is initialized with the initialExpenses array and represents all the transactions.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+date, description, category, amount, and search represent individual fields of a transaction, and are used to manage the state of the form that allows users to create new transactions.
 
-### `npm run build`
+### Several event handler functions are defined to handle changes to the form fields:
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+handleSearch is called when the user types in the search field.
+handleDate is called when the user selects a date.
+handleDescription is called when the user types in the description field.
+handleCategory is called when the user selects a category.
+handleAmount is called when the user types in the amount field.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## HandleSubmit
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+The handleSubmit function is called when the user submits the form. It checks that all fields are filled out or that the amount is negative and the search field is not empty. If the form is valid, it creates a new transaction object and adds it to the expenses array. The form fields are then reset to their initial state.
 
-### `npm run eject`
+### FilteredExpenses
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+The filteredExpenses array is created using the filter method. It contains all the transactions that match the search term entered by the user.
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## The App component renders two child components:
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+<TransactionForm> is responsible for rendering the form that allows users to create new transactions. It is passed all the form field state variables and event handler functions as props.
+<TransactionList> is responsible for rendering the list of transactions. It is passed the filteredExpenses array as a prop.
+The entire application is wrapped in a fragment (<> and </>) which is used as a wrapper element.
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+Finally, the App component is exported as the default export of the module so that it can be used in other parts of the application.
 
-## Learn More
+### The next part will look at the Compoments: Form
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+This is a React component that represents a form for adding transactions. It contains several input fields for the user to enter information about the transaction, including the date, description, category, and amount.
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+The handleSubmit function is called when the form is submitted. The other functions, handleSearch, handleCategory, handleDescription, handleAmount, and handleDate, are called when the user types into the corresponding input fields.
 
-### Code Splitting
+The min and max attributes in the date input field ensure that the user can only select a date within a certain range.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+The component is also using the react-datepicker package to display a date picker component. The CSS file for this package is imported at the beginning of the file.
 
-### Analyzing the Bundle Size
+Once the user has entered all the necessary information, they can click the "Add Transaction" button to submit the form.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+### The next part will look at the Compoments: Items
 
-### Making a Progressive Web App
+This is a React component called TransactionItem that takes in an object called expense as a prop. The expense object is expected to have properties such as date, description, category, and amount.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+The component then renders a table row (<tr>) with four cells (<td>) that display the date, description, category, and amount values of the expense object. The amount value is also prefixed with a dollar sign ($) to denote currency.
 
-### Advanced Configuration
+This component is likely used in a larger application to display a list of expenses or transactions.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+### The next part will look at the Compoments: Items
 
-### Deployment
+This code defines a React component called TransactionList that takes a single prop called expenses. It renders a table with four columns: Date, Description, Category, and Amount. For each expense object in the expenses array, it renders a row using the TransactionItem component, passing in the expense object as a prop. The key prop is set to the id property of the expense object to help React efficiently update the DOM when the list of expenses changes.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+The TransactionItem component takes a single prop called expense, which is an object containing the date, description, category, and amount properties. It renders a table row with four cells, displaying the value of each property in the corresponding cell.
+# Bank-of-Flatiron
